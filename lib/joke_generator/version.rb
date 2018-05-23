@@ -1,3 +1,3 @@
-module Lorem
+module JokeGenerator
   VERSION = "0.1.0"
 end
