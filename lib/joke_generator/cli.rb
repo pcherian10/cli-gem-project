@@ -4,7 +4,7 @@ require './lib/joke_generator.rb'
 class JokeGenerator::CLI
 
   def call
-    JokeGenerator::Scraper.new.make_categories
+    #JokeGenerator::Scraper.new.make_categories
     puts "Welcome to the Joke Generator!"
     start
   end

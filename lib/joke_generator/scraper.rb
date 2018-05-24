@@ -1,11 +1,14 @@
+require 'pry'
+
 class JokeGenerator::Scraper
 
   def get_page
-    Nokogiri::HTML(open("http://jokes.cc.com/"))
+    html = Nokogiri::HTML(open("http://jokes.cc.com/"))
+    binding.pry
   end
 
   def scrape_categories_index
-    self.get_page.css(#some html)
+    self.get_page.css()
   end
 
   def make_categories

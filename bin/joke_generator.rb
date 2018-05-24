@@ -1,5 +1,4 @@
-require "joke_generator/version"
+require "bundler/setup"
+require "joke_generator"
 
-module JokeGenerator
-  # Your code goes here...
-end
+JokeGenerator::CLI.new.call
