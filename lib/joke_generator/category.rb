@@ -1,21 +1,28 @@
 class JokeGenerator::Category
 
-attr_accessor :title, :url
+attr_accessor :title, :link
 
-  def self.new_from_index_page (entry)
+@@all = []
+
+  def self.new_from_categories_page (category)
     self.new(
-      entry.css(#html)
-      entry.url
+      category.attribute("title").value,
+      category.attribute("href").value
     )
   end
 
-  def initialize (title = nil, url = nil)
+  def initialize (title = nil, link = nil)
     @title = title
-    @url = url
+    @link = link
+    @@all << self
+  end
+
+  def self.find(id)
+   self.all[id-1]
   end
 
   def self.all
-
+    @@all
   end
 
 end

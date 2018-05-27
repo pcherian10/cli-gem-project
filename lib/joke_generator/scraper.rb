@@ -1,29 +1,46 @@
-require 'pry'
-
 class JokeGenerator::Scraper
 
-  def get_page
-    html = Nokogiri::HTML(open("http://jokes.cc.com/"))
-    binding.pry
-  end
+ #category title - html.css("ul.list_horiz a").attribute("title").value
+ #category link html.css("ul.list_horiz a").attribute("href").value
 
-  def scrape_categories_index
-    self.get_page.css()
-  end
+ def category_get_page
+    Nokogiri::HTML(open("http://jokes.cc.com/"))
+ end
 
-  def make_categories
-    scrape_categories_index.each do |el|
-      JokeGenerator::Category.new_from_index_page(el)
+ def scrape_categories_page
+   self.category_get_page.css("ul.list_horiz a")
+ end
+
+ def make_categories
+    scrape_categories_page.each do |category|
+      JokeGenerator::Category.new_from_categories_page(category)
     end
-  end
+ end
 
-  def scrape_jokes_index
-    self.get_page.css(#some html)
-  end
+ def joke_get_page (joke_list)
+     Nokogiri::HTML(open("#{joke_list}"))
+ end
 
-  def make_jokes
-    scrape_categories_index.each do |el|
-      JokeGenerator::Joke.new_from_category_page(el)
-    end
-  end
+ def scrape_jokes_page(joke_list)
+   self.joke_get_page(joke_list).css("div.module_content li")
+ end
+
+ def make_jokes(joke_list)
+   scrape_jokes_page(joke_list).each do |joke|
+     JokeGenerator::Joke.new_from_joke_page(joke)
+   end
+ end
+
+ def get_joke (joke_link)
+   Nokogiri::HTML(open("#{joke_link}"))
+ end
+
+ def scrape_joke (joke_link)
+   self.get_joke(joke_link).css("p").text
+ end
+
+ def display_joke (joke_link)
+   puts scrape_joke(joke_link)
+ end
+
 end
