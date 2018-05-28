@@ -17,12 +17,12 @@ class JokeGenerator::Scraper
     end
  end
 
- def joke_get_page (joke_list)
+ def get_joke_list (joke_list)
      Nokogiri::HTML(open("#{joke_list}"))
  end
 
  def scrape_jokes_page(joke_list)
-   self.joke_get_page(joke_list).css("div.module_content li")
+   self.get_joke_list(joke_list).css("div.tier_2_col ul li")
  end
 
  def make_jokes(joke_list)

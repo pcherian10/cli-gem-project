@@ -36,6 +36,7 @@ class JokeGenerator::CLI
       end
 
       joke = JokeGenerator::Joke.find(joke_input)
+      joke.reset_all
       JokeGenerator::Scraper.new.display_joke(joke.link)
 
       puts ""
