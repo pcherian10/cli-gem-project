@@ -39,8 +39,4 @@ class JokeGenerator::Scraper
    self.get_joke(joke_link).css("p").text
  end
 
- def display_joke (joke_link)
-   puts scrape_joke(joke_link)
- end
-
 end
