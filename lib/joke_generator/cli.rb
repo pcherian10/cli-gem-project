@@ -59,6 +59,7 @@ class JokeGenerator::CLI
 
         puts ""
         puts "Would you like to laugh again? (y/n)"
+        puts ""
         end_input = gets.strip.downcase
           while (end_input != "y" && end_input != "n")
             puts "That's not funny, input y for yes, or n for no!"
