@@ -12,7 +12,9 @@ Add this line to your application's Gemfile:
 gem 'joke_generator'
 ```
 
-And then execute: "bundle install"
+And then execute:
+
+  "bundle install"  
 
 Or install it yourself as:
 
@@ -22,7 +24,7 @@ After cloning the folder, run ruby bin/joke_generator to get started.
 
 ## Usage
 
-Choose the first option for a random joke from the database and
+Choose the first option for a random joke from the database. Choose the second option for a list of categories, which will lead to a list of joke titles. Then, choose a joke title to display the joke.
 
 ## Development
 
