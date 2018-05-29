@@ -1,8 +1,8 @@
-source "https://rubygems.org"
+source "http://rubygems.org"
 
-#git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+git_source(:github) {|repo_name| "https://github.com/pcherian10/#{repo_name}" }
+#gem 'joke_generator'
+
 
 # Specify your gem's dependencies in joke_generator.gemspec
 gemspec
-
-require "nokogiri"

@@ -103,7 +103,7 @@ class JokeGenerator::CLI
     joke_string = JokeGenerator::Scraper.new.scrape_joke(joke.link)
     joke_string = joke_string.split("© 2018 Comedy Partners. All Rights Reserved. Comedy Central and all related titles, logos and characters are trademarks of comedy partners.")
     puts ""
-    puts "#{joke.title} filed under #{category.title} category."
+    puts "'#{joke.title}' filed under #{category.title} category."
     puts ""
     puts "#{joke_string[0]}"
     puts ""

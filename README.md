@@ -1,8 +1,8 @@
 # JokeGenerator
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/joke_generator`. To experiment with that code, run `bin/console` for an interactive prompt.
+## Description
+  This is a CLI gem app that scrapes the comedy central joke database (jokes.cc.com). The CLI allows the user to choose an options to tell a random joke, or secondarily, choose a joke from the database via a category.
 
-TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
@@ -12,17 +12,17 @@ Add this line to your application's Gemfile:
 gem 'joke_generator'
 ```
 
-And then execute:
-
-    $ bundle
+And then execute: "bundle install"
 
 Or install it yourself as:
 
     $ gem install joke_generator
 
+After cloning the folder, run ruby bin/joke_generator to get started.
+
 ## Usage
 
-TODO: Write usage instructions here
+Choose the first option for a random joke from the database and
 
 ## Development
 
@@ -32,7 +32,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/joke_generator. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/pcherian10/joke_generator. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 

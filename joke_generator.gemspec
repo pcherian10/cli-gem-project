@@ -6,12 +6,12 @@ require "joke_generator/version"
 Gem::Specification.new do |spec|
   spec.name          = "joke_generator"
   spec.version       = JokeGenerator::VERSION
-  spec.authors       = ["pcherian10"]
+  spec.authors       = ["Paul Cherian"]
   spec.email         = ["pcherian10@gmail.com"]
 
   spec.summary       = %q{Gets jokes from Comedy Central}
   spec.description   = %q{tells jokes at random or you could choose from a category of your choice, picked from a list}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/pcherian10/jokegen-cli-app.git"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -36,6 +36,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "pry"
-
   spec.add_dependency "nokogiri"
 end
