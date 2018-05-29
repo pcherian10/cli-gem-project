@@ -1,7 +1,7 @@
 # JokeGenerator
 
 ## Description
-  This is a CLI gem app that scrapes the comedy central joke database (jokes.cc.com). The CLI allows the user to choose an options to tell a random joke, or secondarily, choose a joke from the database via a category.
+  This is a CLI gem app that scrapes the comedy central joke database (jokes.cc.com). The CLI allows the user to choose an option to tell a random joke, or secondarily, select a joke from the database via a category.
 
 
 ## Installation
