@@ -1,7 +1,8 @@
 class JokeGenerator::Joke
-  attr_accessor :title, :link
+  attr_accessor :title, :link, :category
 
   @@all = []
+  @category = []
 
     def self.new_from_joke_page (joke)
       self.new(
@@ -14,6 +15,10 @@ class JokeGenerator::Joke
       @title = title
       @link = link
       @@all << self
+    end
+
+    def category=(category)
+      @category << category
     end
 
     def self.find(id)

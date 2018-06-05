@@ -42,6 +42,7 @@ class JokeGenerator::CLI
         category = JokeGenerator::Category.find(input)
         JokeGenerator::Scraper.new.make_jokes(category.link)
 
+
         print_joke_list
         puts ""
         puts "Choose a joke by entering a number:"
@@ -49,7 +50,7 @@ class JokeGenerator::CLI
 
         while (joke_input > JokeGenerator::Joke.all.length || joke_input <= 0)
           puts "That's not funny! Enter one of the numbers!"
-          input = gets.strip.to_i
+          joke_input = gets.strip.to_i
         end
 
         joke = JokeGenerator::Joke.find(joke_input)
@@ -80,7 +81,6 @@ class JokeGenerator::CLI
     joke_input = rand(1..JokeGenerator::Joke.all.length)
     joke = JokeGenerator::Joke.find(joke_input)
     joke.reset_all
-
     display_joke(joke, category)
 
   end
