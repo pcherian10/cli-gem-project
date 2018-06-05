@@ -74,7 +74,6 @@ class JokeGenerator::CLI
 
   def random_joke
     input = rand(1..JokeGenerator::Category.all.length)
-
     category = JokeGenerator::Category.find(input)
     JokeGenerator::Scraper.new.make_jokes(category.link)
 

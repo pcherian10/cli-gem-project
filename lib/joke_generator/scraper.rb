@@ -4,7 +4,8 @@ class JokeGenerator::Scraper
  #category link html.css("ul.list_horiz a").attribute("href").value
 
  def category_get_page
-    Nokogiri::HTML(open("http://jokes.cc.com/"))
+    html = File.read('fixtures/jokes.html')
+    Nokogiri::HTML(html)
  end
 
  def scrape_categories_page
