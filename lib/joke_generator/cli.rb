@@ -43,31 +43,20 @@ class JokeGenerator::CLI
         category = JokeGenerator::Category.find(input)
 
         if category.jokes.length == 0
-
           JokeGenerator::Scraper.new.make_jokes(category.link)
-
           print_and_save_category_jokes (category)
-
-          puts ""
-          puts "Choose a joke by entering a number:"
-          joke_input = gets.strip.to_i
-
-          while (joke_input > category.jokes.length || joke_input <= 0)
-            puts "That's not funny! Enter one of the numbers!"
-            joke_input = gets.strip.to_i
-          end
 
         else
           print_category_jokes (category)
+        end
 
-          puts ""
-          puts "Choose a joke by entering a number:"
+        puts ""
+        puts "Choose a joke by entering a number:"
+        joke_input = gets.strip.to_i
+
+        while (joke_input > category.jokes.length || joke_input <= 0)
+          puts "That's not funny! Enter one of the numbers!"
           joke_input = gets.strip.to_i
-
-          while (joke_input > category.jokes.length || joke_input <= 0)
-            puts "That's not funny! Enter one of the numbers!"
-            joke_input = gets.strip.to_i
-          end
         end
 
         joke = category.jokes[joke_input - 1]
