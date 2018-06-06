@@ -27,9 +27,10 @@ class JokeGenerator::Scraper
  end
 
  def make_jokes(joke_list)
-   scrape_jokes_page(joke_list).each do |joke|
+     scrape_jokes_page(joke_list).each do |joke|
      JokeGenerator::Joke.new_from_joke_page(joke)
-   end
+    end
+    
  end
 
  def get_joke (joke_link)

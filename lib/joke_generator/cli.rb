@@ -1,5 +1,6 @@
 # Our CLI Controller
 require './lib/joke_generator.rb'
+require 'pry'
 
 class JokeGenerator::CLI
 
@@ -40,22 +41,38 @@ class JokeGenerator::CLI
         end
 
         category = JokeGenerator::Category.find(input)
-        JokeGenerator::Scraper.new.make_jokes(category.link)
 
+        if category.jokes.length == 0
 
-        print_joke_list
-        puts ""
-        puts "Choose a joke by entering a number:"
-        joke_input = gets.strip.to_i
+          JokeGenerator::Scraper.new.make_jokes(category.link)
 
-        while (joke_input > JokeGenerator::Joke.all.length || joke_input <= 0)
-          puts "That's not funny! Enter one of the numbers!"
+          print_and_save_category_jokes (category)
+
+          puts ""
+          puts "Choose a joke by entering a number:"
           joke_input = gets.strip.to_i
+
+          while (joke_input > category.jokes.length || joke_input <= 0)
+            puts "That's not funny! Enter one of the numbers!"
+            joke_input = gets.strip.to_i
+          end
+
+        else
+          print_category_jokes (category)
+
+          puts ""
+          puts "Choose a joke by entering a number:"
+          joke_input = gets.strip.to_i
+
+          while (joke_input > category.jokes.length || joke_input <= 0)
+            puts "That's not funny! Enter one of the numbers!"
+            joke_input = gets.strip.to_i
+          end
         end
 
-        joke = JokeGenerator::Joke.find(joke_input)
-        joke.reset_all
-        display_joke(joke, category)
+        joke = category.jokes[joke_input - 1]
+        display_joke(joke,category)
+
       end
 
         puts ""
@@ -76,15 +93,14 @@ class JokeGenerator::CLI
   def random_joke
     input = rand(1..JokeGenerator::Category.all.length)
     category = JokeGenerator::Category.find(input)
-    JokeGenerator::Scraper.new.make_jokes(category.link)
-
-    joke_input = rand(1..JokeGenerator::Joke.all.length)
-    joke = JokeGenerator::Joke.find(joke_input)
-    joke.reset_all
-    display_joke(joke, category)
-
+      if category.jokes.length == 0
+        JokeGenerator::Scraper.new.make_jokes(category.link)
+        save_category_jokes (category)
+      end
+      joke_input = rand(1..category.jokes.length)
+      joke = category.jokes[joke_input - 1]
+      display_joke(joke,category)
   end
-
 
   def print_joke_categories
     JokeGenerator::Category.all.each.with_index(1) do |category, index|
@@ -92,10 +108,24 @@ class JokeGenerator::CLI
     end
   end
 
-  def print_joke_list
+  def print_and_save_category_jokes (category)
     JokeGenerator::Joke.all.each.with_index(1) do |joke, index|
       puts "#{index}. #{joke.title}"
     end
+    save_category_jokes (category)
+  end
+
+  def print_category_jokes (category)
+    category.jokes.each.with_index (1) do |joke, index|
+        puts "#{index}. #{joke.title}"
+    end
+  end
+
+  def save_category_jokes (category)
+    JokeGenerator::Joke.all.each.with_index(1) do |joke, index|
+      category.add_joke(joke)
+    end
+    JokeGenerator::Joke.reset_all
   end
 
   def display_joke (joke, category)

@@ -1,6 +1,7 @@
 class JokeGenerator::Category
 
 attr_accessor :title, :link
+attr_reader :jokes
 
 @@all = []
 
@@ -15,6 +16,11 @@ attr_accessor :title, :link
     @title = title
     @link = link
     @@all << self
+    @jokes = []
+  end
+
+  def add_joke (joke)
+    @jokes << joke
   end
 
   def self.find(id)

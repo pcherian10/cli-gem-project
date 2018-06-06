@@ -1,5 +1,5 @@
 class JokeGenerator::Joke
-  attr_accessor :title, :link, :category
+  attr_accessor :title, :link
 
   @@all = []
   @category = []
@@ -17,19 +17,11 @@ class JokeGenerator::Joke
       @@all << self
     end
 
-    def category=(category)
-      @category << category
-    end
-
-    def self.find(id)
-      self.all[id-1]
-    end
-
     def self.all
       @@all
     end
 
-    def reset_all
+    def self.reset_all
       @@all.clear
     end
 end
