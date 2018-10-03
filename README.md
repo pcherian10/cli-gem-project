@@ -6,7 +6,7 @@
 
 ## Installation
 
-After cloning the folder, and ensuring moving into the directory path, run 'bundle install' and then 'ruby bin/joke_generator' in the command line to get started.
+After cloning the folder, and moving into the directory path, run 'bundle install' and then 'ruby bin/joke_generator' in the command line to get started.
 
 ## Usage
 
