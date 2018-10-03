@@ -6,21 +6,7 @@
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'joke_generator'
-```
-
-And then execute:
-
-  "bundle install"  
-
-Or install it yourself as:
-
-    $ gem install joke_generator
-
-After cloning the folder, run ruby bin/joke_generator to get started.
+After cloning the folder, and ensuring moving into the directory path, run 'bundle install' and then 'ruby bin/joke_generator' in the command line to get started.
 
 ## Usage
 
